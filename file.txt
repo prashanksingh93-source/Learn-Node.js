@@ -1,0 +1,2 @@
+this is sample for write file
+ this is new line in same file
