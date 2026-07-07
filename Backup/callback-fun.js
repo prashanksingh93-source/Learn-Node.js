@@ -28,6 +28,7 @@ const fs=require('fs').promises;
 // })
 
 
+//hwo to handle callback hell
 async  function readData(){
        try{
         let data1=await fs.readFile('index1.txt','utf-8');
