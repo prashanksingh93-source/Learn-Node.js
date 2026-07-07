@@ -1,5 +1,6 @@
 const http = require("http");
 const fs = require("fs");
+const querystring=require('querystring');
 
 http.createServer((req, res) => {
     fs.readFile("file.html", "utf-8", (err, data) => {
@@ -15,8 +16,14 @@ http.createServer((req, res) => {
               userData.push(chunk);
         })
         req.on('end',()=>{
-          let 
+          let parsedData=Buffer.concat(userData).toString();
+          let redableData = querystring.parse(parsedData);
+          console.log(redableData);
+
+          let savedata=`email=${redableData.email} and password=${redableData.password}`;
+          fs.writeFileSync('data.txt',savedata);
         })
+       
 
         res.writeHead(200,{'Content-type':'text/html'})
         res.write('<h1>SUBMIT SUCCESSFULLY</h1>')
