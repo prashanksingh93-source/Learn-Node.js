@@ -10,6 +10,14 @@ http.createServer((req, res) => {
         res.writeHead(200, { "Content-type": "text/html" });
         res.write(data);
       }else if(req.url==='/submit'){
+        let userData=[];
+        req.on('data',(chunk)=>{
+              userData.push(chunk);
+        })
+        req.on('end',()=>{
+          let 
+        })
+
         res.writeHead(200,{'Content-type':'text/html'})
         res.write('<h1>SUBMIT SUCCESSFULLY</h1>')
       }
